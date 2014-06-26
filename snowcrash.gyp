@@ -87,6 +87,8 @@
         'test/test-ActionParser.cc',
         'test/test-AssetParser.cc',
         'test/test-HeadersParser.cc',
+        'test/test-MSON.cc',
+        'test/test-MSONPropertyParser.cc',
         'test/test-ParameterParser.cc',
         'test/test-ParametersParser.cc',
         'test/test-PayloadParser.cc',
