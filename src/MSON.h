@@ -48,11 +48,11 @@ namespace mson {
         typedef T value_type;
         
         Value() {}
-        Value(const T &v_) : v(v_) {}
-        T v;
+        Value(const value_type &v_) : v(v_) {}
+        value_type v;
         
         virtual ValueBase* duplicate() const {
-            return ::new Value<T>(v);
+            return ::new Value<value_type>(v);
         }
     };
 
@@ -93,12 +93,12 @@ namespace mson {
     /** \brief Element Value access helper */
     template<typename T>
     struct ElementValue {
-        static T& get(Element& e) {
-            return dynamic_cast<Value<T> &>(*e.value).v;
+        static typename T::value_type& get(Element& e) {
+            return dynamic_cast<T &>(*e.value).v;
         }
         
-        static const T& get(const Element& e) {
-            return dynamic_cast<const Value<T> &>(*e.value).v;
+        static const typename T::value_type& get(const Element& e) {
+            return dynamic_cast<const T &>(*e.value).v;
         }
     };
 }

@@ -18,17 +18,17 @@ TEST_CASE("element copy", "[mson]")
     
     Element e1;
     e1.value.reset(::new StringValue("Element 1"));
-    REQUIRE(ElementValue<StringValue::value_type>::get(e1) == "Element 1");
+    REQUIRE(ElementValue<StringValue>::get(e1) == "Element 1");
     
     Element e2;
     e2.value.reset(::new StringValue("Element 2"));
-    REQUIRE(ElementValue<StringValue::value_type>::get(e2) == "Element 2");
+    REQUIRE(ElementValue<StringValue>::get(e2) == "Element 2");
     
     Element e3(e2);
-    REQUIRE(ElementValue<StringValue::value_type>::get(e3) == "Element 2");
-    ElementValue<StringValue::value_type>::get(e3) = "Element 3";
-    REQUIRE(ElementValue<StringValue::value_type>::get(e3) == "Element 3");
-    REQUIRE(ElementValue<StringValue::value_type>::get(e2) == "Element 2");
+    REQUIRE(ElementValue<StringValue>::get(e3) == "Element 2");
+    ElementValue<StringValue>::get(e3) = "Element 3";
+    REQUIRE(ElementValue<StringValue>::get(e3) == "Element 3");
+    REQUIRE(ElementValue<StringValue>::get(e2) == "Element 2");
     
     std::vector<Element> elements;
     elements.push_back(e1);
