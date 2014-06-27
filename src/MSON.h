@@ -21,19 +21,25 @@ namespace mson {
     
     typedef mdp::ByteBuffer ByteBuffer;
     
-    /// Value Type
-    enum ValueType {
-        StringValueType = 0,    /// < String
-        NumberValueType,        /// < Number
-        ObjectValueType,        /// < Object
-        ArrayValueType,         /// < Array
-        BooleanValueType,       /// < Boolean
+    /** MSON Data Types */
+    enum DataType {
+        StringDataType = 0,    /// < String
+        NumberDataType,        /// < Number
+        ObjectDataType,        /// < Object
+        ArrayDataType,         /// < Array
+        BooleanDataType,       /// < Boolean
         UndefinedValueType = -1 /// < Undefined Type
     };
     
-    /** \brief MSON Value base */
+    /** \brief MSON Value base interface */
     struct ValueBase {
         virtual ~ValueBase() {}
+        
+        /** 
+         * \brief Create a copy of a Value 
+         *
+         *  The value returned must be deallocated by the caller.
+         */
         virtual ValueBase* duplicate() const = 0;
     };
     
@@ -58,9 +64,10 @@ namespace mson {
 
     /** \brief Element of an MSON Array */
     struct Element {
-        mdp::ByteBuffer description;
-        std::auto_ptr<ValueBase> value;
-        ValueType type;
+        
+        mdp::ByteBuffer description;        /// < Element description
+        std::auto_ptr<ValueBase> value;     /// < Element value
+        DataType type;                      /// < Element data type
         
         Element() : type(UndefinedValueType) {}
         Element(const Element& e) { init(e); }
