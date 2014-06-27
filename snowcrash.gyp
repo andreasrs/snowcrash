@@ -88,6 +88,7 @@
         'test/test-ParametersParser.cc',
         'test/test-PayloadParser.cc',
         'test/test-ResourceParser.cc',
+        'test/test-ResourceGroupParser.cc',
         'test/test-ValuesParser.cc',
         'test/test-Blueprint.cc',
         'test/test-SectionParser',
