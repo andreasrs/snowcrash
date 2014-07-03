@@ -72,8 +72,9 @@ namespace snowcrash {
         static SectionType sectionType(const MarkdownNodeIterator& node) {
             if (node->type == mdp::ListItemMarkdownNodeType
                 && !node->children().empty()) {
-                
+
                 AssetSignature signature = assetSignature(node);
+
                 switch (signature) {
                     case BodyAssetSignature:
                     case ImplicitBodyAssetSignature:
@@ -86,12 +87,14 @@ namespace snowcrash {
                         return UndefinedSectionType;
                 }
             }
+
             return UndefinedSectionType;
         }
         
         /** Resolve asset signature */
         static AssetSignature assetSignature(const MarkdownNodeIterator& node) {
             mdp::ByteBuffer subject = node->children().front().text;
+            TrimString(subject);
             
             /** Body matching regex */
             static const char* const BodyRegex = "^[[:blank:]]*[Bb]ody[[:blank:]]*$";
