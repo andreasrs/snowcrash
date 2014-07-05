@@ -88,6 +88,7 @@
         'test/test-AssetParser.cc',
         'test/test-HeadersParser.cc',
         'test/test-MSON.cc',
+        'test/test-MSONElementParser.cc',
         'test/test-MSONPropertyParser.cc',
         'test/test-ParameterParser.cc',
         'test/test-ParametersParser.cc',
@@ -100,6 +101,7 @@
         'test/test-snowcrash.cc',
         # 'test/test-csnowcrash.cc',
         'test/test-UriTemplateParser.cc'
+        'test/test-Signature.cc'
       ],
       'dependencies': [
         'libsnowcrash',

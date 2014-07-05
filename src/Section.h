@@ -40,7 +40,8 @@ namespace snowcrash {
         ValuesSectionType,              /// < Value enumeration
         ValueSectionType,               /// < One Value
         MSONObjectSectionType,          /// < MSON Object
-        MSONPropertySectionType         /// < MSON Object property
+        MSONPropertySectionType,        /// < MSON Object Property
+        MSONElementSectionType          /// < MSON Array Element
     };
     
     /** \return Human readable name for given %SectionType */

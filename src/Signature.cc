@@ -26,3 +26,8 @@ bool snowcrash::HasSectionKeywordSignature(const mdp::MarkdownNodeIterator& node
             SectionProcessor<Parameters>::sectionType(node) != UndefinedSectionType ||
             SectionProcessor<Action>::sectionType(node) != UndefinedSectionType);
 }
+
+
+const char* const SignatureParser::UnescapedIdentifier = "^([^:()-]+)";
+const char* const SignatureParser::UnescapedValue = SignatureParser::UnescapedIdentifier;
+const char* const SignatureParser::CSVTraits = "\\(([^)]+)\\)";

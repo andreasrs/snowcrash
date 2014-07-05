@@ -68,8 +68,9 @@ namespace mson {
         mdp::ByteBuffer description;        /// < Element description
         std::auto_ptr<ValueBase> value;     /// < Element value
         DataType type;                      /// < Element data type
+        bool required;                      /// < True for required, false otherwise (default)
         
-        Element() : type(UndefinedValueType) {}
+        Element() : type(UndefinedValueType), required(false) {}
         Element(const Element& e) { init(e); }
         Element& operator=(const Element& e) { init(e); return *this; }
         ~Element() { value.reset(); }
@@ -78,6 +79,7 @@ namespace mson {
         void init(const Element& e) {
             description = e.description;
             type = e.type;
+            required = e.required;
             if (e.value.get())
                 value.reset(e.value->duplicate());
         }
