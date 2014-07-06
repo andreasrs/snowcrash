@@ -68,10 +68,6 @@ namespace snowcrash {
      */
     struct SignatureParser {
         
-        static const char* const UnescapedIdentifier;
-        static const char* const UnescapedValue;
-        static const char* const CSVTraits;
-        
         /**
          *  \brief Parse list-defined line signature
          *
@@ -89,15 +85,18 @@ namespace snowcrash {
                                    mdp::ByteBuffer& remainingContent,
                                    Signature& s) {
             
+            static const char ValueDelim = ':';
+            static const char CSVDelim = ',';
+            static const char TraitsDelim = '(';
+            static const char* const CSVTraitsRegex = "^\\(([^)]+)\\)";
+            
             mdp::ByteBuffer work = GetFirstLine(node->text, remainingContent);
             
             if (t.expectIdentifier) {
-                s.identifier = RegexCaptureFirst(work, UnescapedIdentifier);
+                size_t matchSize = RetrieveVariable(work, s.identifier);
 
-                work = work.substr(s.identifier.size());
+                work = work.substr(matchSize);
                 TrimStringStart(work);
-                
-                TrimString(s.identifier);
                 
                 if (s.identifier.empty()) {
                     MissingIdentifierWarning(node, work, t, pd, report);
@@ -105,17 +104,17 @@ namespace snowcrash {
             }
             
             if (t.allowValue) {
-                if (!t.expectIdentifier || work.find_first_of(':') == 0) {
+                if (!t.expectIdentifier || work.find_first_of(ValueDelim) == 0) {
                     
-                    if (t.expectIdentifier)
+                    if (t.expectIdentifier) {
                         work = work.substr(1);
+                        TrimStringStart(work);
+                    }
                     
-                    s.value = RegexCaptureFirst(work, UnescapedValue);
-
-                    work = work.substr(s.value.size());
+                    size_t matchSize = RetrieveVariable(work, s.value);
+                    
+                    work = work.substr(matchSize);
                     TrimStringStart(work);
-
-                    TrimString(s.value);
 
                     if (t.expectIdentifier && s.value.empty()) {
                         MissingValueWarning(node, work, t, pd, report);
@@ -124,10 +123,10 @@ namespace snowcrash {
             }
             
             if (t.maxTraitsCount) {
-                if (work.find_first_of('(') == 0) {
+                if (work.find_first_of(TraitsDelim) == 0) {
                     CaptureGroups groups;
-                    if (RegexCapture(work, CSVTraits, groups, 2) && groups.size() == 2) {
-                        Split(groups[1], ',', s.traits);
+                    if (RegexCapture(work, CSVTraitsRegex, groups, 2) && groups.size() == 2) {
+                        Split(groups[1], CSVDelim, s.traits);
                         for (std::vector<std::string>::iterator it = s.traits.begin();
                              it != s.traits.end();
                              ++it) {
@@ -155,6 +154,26 @@ namespace snowcrash {
             if (!work.empty()) {
                 UnexpectedContentWarning(node, work, t, pd, report);
             }
+        }
+        
+        /**
+         *  \brief Retrieve a variable component (identifier or value) from the subject
+         */
+        static size_t RetrieveVariable(const mdp::ByteBuffer& subject, mdp::ByteBuffer& variable) {
+            static const char* const VariableRefex = "^(`([^`]+)`)|^([^:()`-]+)";
+            mdp::ByteBuffer match;
+            CaptureGroups groups;
+            
+            if (RegexCapture(subject, VariableRefex, groups, 4) && groups.size() == 4) {
+                if (!groups[2].empty())
+                    variable = groups[2]; // Escaped value
+                else
+                    variable = groups[3]; // Unescaped value
+                
+                TrimString(variable);
+            }
+            
+            return (!groups.empty()) ? groups[0].size() : 0;
         }
         
         /** \brief Compose missing element definition warning */

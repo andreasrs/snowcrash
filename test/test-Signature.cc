@@ -10,7 +10,10 @@
 #include "Signature.h"
 
 static const mdp::ByteBuffer PropertySignatureFixture = "id: 42 (yes, no) - a good message";
+static const mdp::ByteBuffer EscapedPropertySignatureFixture = "`*id*(data):3`: `42` (yes, no) - a good message";
+
 static const mdp::ByteBuffer ElementSignatureFixture = "42 (number) - a good number";
+static const mdp::ByteBuffer EscapedElementSignatureFixture = "`*42*(data):3` (number) - a good number";
 
 using namespace snowcrash;
 
@@ -61,6 +64,27 @@ TEST_CASE("signature", "[signature]")
     REQUIRE(rc.empty());
     
     REQUIRE(s.identifier == "id");
+    REQUIRE(s.value == "42");
+    REQUIRE(s.traits.size() == 2);
+    REQUIRE(s.traits[0] == "yes");
+    REQUIRE(s.traits[1] == "no");
+    REQUIRE(s.content == "a good message");
+}
+
+TEST_CASE("escaped signature", "[signature]")
+{
+    Report r;
+    mdp::ByteBuffer rc;
+    Signature s;
+    
+    SignatureParserHelper::parse(EscapedPropertySignatureFixture,
+                                 SignatureTraits::get(), r, rc, s);
+    
+    REQUIRE(r.error.code == Error::OK);
+    REQUIRE(r.warnings.empty());
+    REQUIRE(rc.empty());
+    
+    REQUIRE(s.identifier == "*id*(data):3");
     REQUIRE(s.value == "42");
     REQUIRE(s.traits.size() == 2);
     REQUIRE(s.traits[0] == "yes");
@@ -179,6 +203,26 @@ TEST_CASE("element signature", "[signature]")
     
     REQUIRE(s.identifier.empty());
     REQUIRE(s.value == "42");
+    REQUIRE(s.traits.size() == 1);
+    REQUIRE(s.traits[0] == "number");
+    REQUIRE(s.content == "a good number");
+}
+
+TEST_CASE("escaped element signature", "[signature]")
+{
+    Report r;
+    mdp::ByteBuffer rc;
+    Signature s;
+    
+    SignatureParserHelper::parse(EscapedElementSignatureFixture,
+                                 ElementTraits::get(), r, rc, s);
+    
+    REQUIRE(r.error.code == Error::OK);
+    REQUIRE(r.warnings.empty());
+    REQUIRE(rc.empty());
+    
+    REQUIRE(s.identifier.empty());
+    REQUIRE(s.value == "*42*(data):3");
     REQUIRE(s.traits.size() == 1);
     REQUIRE(s.traits[0] == "number");
     REQUIRE(s.content == "a good number");
@@ -320,4 +364,3 @@ TEST_CASE("element signature value and traits", "[signature]")
     REQUIRE(s.traits.empty());
     REQUIRE(s.content == "content is the king");
 }
-
