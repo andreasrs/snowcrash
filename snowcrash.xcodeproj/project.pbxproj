@@ -19,6 +19,14 @@
 		BB8C3E711923F09900EF36FA /* libmarkdownparser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8C3E701923F09900EF36FA /* libmarkdownparser.a */; };
 		BB8C3E7419241C1600EF36FA /* Section.cc in Sources */ = {isa = PBXBuildFile; fileRef = BB8C3E7319241C1600EF36FA /* Section.cc */; };
 		BB92D891178EF7C10098A63C /* HTTP.cc in Sources */ = {isa = PBXBuildFile; fileRef = BB92D890178EF7C10098A63C /* HTTP.cc */; };
+		BB956B6A196C3C0200C90810 /* test-MSON.cc in Sources */ = {isa = PBXBuildFile; fileRef = BB956B66196C3C0200C90810 /* test-MSON.cc */; };
+		BB956B6B196C3C0200C90810 /* test-MSONElementParser.cc in Sources */ = {isa = PBXBuildFile; fileRef = BB956B67196C3C0200C90810 /* test-MSONElementParser.cc */; };
+		BB956B6C196C3C0200C90810 /* test-MSONPropertyParser.cc in Sources */ = {isa = PBXBuildFile; fileRef = BB956B68196C3C0200C90810 /* test-MSONPropertyParser.cc */; };
+		BB956B6D196C3C0200C90810 /* test-Signature.cc in Sources */ = {isa = PBXBuildFile; fileRef = BB956B69196C3C0200C90810 /* test-Signature.cc */; };
+		BB956B6E196C3D0C00C90810 /* snowcrash.cc in Sources */ = {isa = PBXBuildFile; fileRef = BBFF48CC170B3EDE001E5FB2 /* snowcrash.cc */; };
+		BB956B72196C3D8C00C90810 /* MSON.h in Headers */ = {isa = PBXBuildFile; fileRef = BB956B6F196C3D8C00C90810 /* MSON.h */; };
+		BB956B73196C3D8C00C90810 /* MSONElementParser.h in Headers */ = {isa = PBXBuildFile; fileRef = BB956B70196C3D8C00C90810 /* MSONElementParser.h */; };
+		BB956B74196C3D8C00C90810 /* MSONPropertyParser.h in Headers */ = {isa = PBXBuildFile; fileRef = BB956B71196C3D8C00C90810 /* MSONPropertyParser.h */; };
 		BBA25671172BFEB800C1AD5E /* snowcrash.cc in Sources */ = {isa = PBXBuildFile; fileRef = BBA25670172BFEB800C1AD5E /* snowcrash.cc */; };
 		BBA91DC2171D402600649B05 /* BlueprintParser.h in Headers */ = {isa = PBXBuildFile; fileRef = BBA91DC0171D402600649B05 /* BlueprintParser.h */; };
 		BBB0F42A1731CE0D00C92465 /* RegexMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = BBB0F4281731CE0D00C92465 /* RegexMatch.h */; };
@@ -60,7 +68,6 @@
 		BBFC8426196C1AFD001A236A /* test-RegexMatch.cc in Sources */ = {isa = PBXBuildFile; fileRef = BBB0F42B1731D04900C92465 /* test-RegexMatch.cc */; };
 		BBFC8427196C1B1F001A236A /* test-ResourceParser.cc in Sources */ = {isa = PBXBuildFile; fileRef = BBD5F9DD173578210049BBEE /* test-ResourceParser.cc */; };
 		BBFC842A196C1B2B001A236A /* test-snowcrash.cc in Sources */ = {isa = PBXBuildFile; fileRef = BBFF48C9170B3C49001E5FB2 /* test-snowcrash.cc */; };
-		BBFF48CD170B3EDE001E5FB2 /* snowcrash.cc in Sources */ = {isa = PBXBuildFile; fileRef = BBFF48CC170B3EDE001E5FB2 /* snowcrash.cc */; };
 		BBFF48D2170B4224001E5FB2 /* snowcrash.h in Headers */ = {isa = PBXBuildFile; fileRef = BBFF48D1170B4224001E5FB2 /* snowcrash.h */; };
 		BBFF48D6170C4F30001E5FB2 /* Blueprint.h in Headers */ = {isa = PBXBuildFile; fileRef = BBFF48D4170C4F30001E5FB2 /* Blueprint.h */; };
 /* End PBXBuildFile section */
@@ -148,6 +155,13 @@
 		BB92D88F178EF4160098A63C /* HTTP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HTTP.h; path = src/HTTP.h; sourceTree = "<group>"; };
 		BB92D890178EF7C10098A63C /* HTTP.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTP.cc; path = src/HTTP.cc; sourceTree = "<group>"; };
 		BB92D892178EFA370098A63C /* BlueprintUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BlueprintUtility.h; path = src/BlueprintUtility.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		BB956B66196C3C0200C90810 /* test-MSON.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "test-MSON.cc"; path = "test/test-MSON.cc"; sourceTree = "<group>"; };
+		BB956B67196C3C0200C90810 /* test-MSONElementParser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "test-MSONElementParser.cc"; path = "test/test-MSONElementParser.cc"; sourceTree = "<group>"; };
+		BB956B68196C3C0200C90810 /* test-MSONPropertyParser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "test-MSONPropertyParser.cc"; path = "test/test-MSONPropertyParser.cc"; sourceTree = "<group>"; };
+		BB956B69196C3C0200C90810 /* test-Signature.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "test-Signature.cc"; path = "test/test-Signature.cc"; sourceTree = "<group>"; };
+		BB956B6F196C3D8C00C90810 /* MSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSON.h; path = src/MSON.h; sourceTree = "<group>"; };
+		BB956B70196C3D8C00C90810 /* MSONElementParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSONElementParser.h; path = src/MSONElementParser.h; sourceTree = "<group>"; };
+		BB956B71196C3D8C00C90810 /* MSONPropertyParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSONPropertyParser.h; path = src/MSONPropertyParser.h; sourceTree = "<group>"; };
 		BB9E7029183342CB00ED5806 /* test-Warnings.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "test-Warnings.cc"; path = "test/test-Warnings.cc"; sourceTree = "<group>"; };
 		BBA01FF817292F9C0050B603 /* test-BlueprintParser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = "test-BlueprintParser.cc"; path = "test/test-BlueprintParser.cc"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		BBA25667172BFE4C00C1AD5E /* snowcrash */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = snowcrash; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +316,9 @@
 				BBD73565192ED45D009FE09E /* test-HeadersParser.cc */,
 				BB45781D182326EE00D0293A /* test-Indentation.cc */,
 				BB8AEFD717D899B900298807 /* test-ListUtility.cc */,
+				BB956B66196C3C0200C90810 /* test-MSON.cc */,
+				BB956B67196C3C0200C90810 /* test-MSONElementParser.cc */,
+				BB956B68196C3C0200C90810 /* test-MSONPropertyParser.cc */,
 				BBCC856019542DB300B99E90 /* test-ParameterParser.cc */,
 				BB03DC6517D3718D00C51E52 /* test-ParametersParser.cc */,
 				BBA889A917130239005A9570 /* test-Parser.cc */,
@@ -310,6 +327,7 @@
 				BBD5F9DB173561DA0049BBEE /* test-ResouceGroupParser.cc */,
 				BBD5F9DD173578210049BBEE /* test-ResourceParser.cc */,
 				BBCC856619543A4D00B99E90 /* test-SectionParser.cc */,
+				BB956B69196C3C0200C90810 /* test-Signature.cc */,
 				BBFF48C9170B3C49001E5FB2 /* test-snowcrash.cc */,
 				BBCC04E518A51AA800C65A08 /* test-SymbolIdentifier.cc */,
 				BB1865C81764DB8A00756B18 /* test-SymbolTable.cc */,
@@ -342,6 +360,9 @@
 				BB92D88F178EF4160098A63C /* HTTP.h */,
 				BBC2D86218316DC000FBCEA7 /* ListBlockUtility.h */,
 				BB1EC203173FD06600CFB84A /* ListUtility.h */,
+				BB956B6F196C3D8C00C90810 /* MSON.h */,
+				BB956B70196C3D8C00C90810 /* MSONElementParser.h */,
+				BB956B71196C3D8C00C90810 /* MSONPropertyParser.h */,
 				BBCC855C19542DA100B99E90 /* ParameterParser.h */,
 				BB03DC6417D3717B00C51E52 /* ParametersParser.h */,
 				BBE5705F173927870086CE22 /* PayloadParser.h */,
@@ -389,6 +410,7 @@
 				BBD73564192ED417009FE09E /* HeadersParser.h in Headers */,
 				BBCC855F19542DA100B99E90 /* ValuesParser.h in Headers */,
 				BBC2D8661831A76100FBCEA7 /* SectionUtility.h in Headers */,
+				BB956B74196C3D8C00C90810 /* MSONPropertyParser.h in Headers */,
 				BBA91DC2171D402600649B05 /* BlueprintParser.h in Headers */,
 				BBC2D861183024C100FBCEA7 /* DescriptionSectionUtility.h in Headers */,
 				BBCEF19218FBF7B000A0FA24 /* Version.h in Headers */,
@@ -396,7 +418,9 @@
 				BBB0F42A1731CE0D00C92465 /* RegexMatch.h in Headers */,
 				BBD5F9C917353C310049BBEE /* ResourceGroupParser.h in Headers */,
 				BBFC8419196C0C0F001A236A /* CBlueprint.h in Headers */,
+				BB956B73196C3D8C00C90810 /* MSONElementParser.h in Headers */,
 				BBC2D85F18301FEC00FBCEA7 /* CodeBlockUtility.h in Headers */,
+				BB956B72196C3D8C00C90810 /* MSON.h in Headers */,
 				BB8C3E631923D6FE00EF36FA /* SectionParser.h in Headers */,
 				BBD5F9CE17353CE00049BBEE /* ResourceParser.h in Headers */,
 				BBE57061173927870086CE22 /* PayloadParser.h in Headers */,
@@ -536,8 +560,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB956B6E196C3D0C00C90810 /* snowcrash.cc in Sources */,
 				BBFC841A196C0C0F001A236A /* csnowcrash.cc in Sources */,
-				BBFF48CD170B3EDE001E5FB2 /* snowcrash.cc in Sources */,
 				BB92D891178EF7C10098A63C /* HTTP.cc in Sources */,
 				BB8C3E7419241C1600EF36FA /* Section.cc in Sources */,
 				BBE53564174132B100BCA7AD /* Serialize.cc in Sources */,
@@ -556,18 +580,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBFC8425196C1AD4001A236A /* test-ActionParser.cc in Sources */,
+				BB956B6B196C3C0200C90810 /* test-MSONElementParser.cc in Sources */,
 				BBCC856319542DB300B99E90 /* test-ValuesParser.cc in Sources */,
 				BBFC8426196C1AFD001A236A /* test-RegexMatch.cc in Sources */,
 				BBCC856219542DB300B99E90 /* test-ParameterParser.cc in Sources */,
+				BB956B6A196C3C0200C90810 /* test-MSON.cc in Sources */,
 				BB8C3E661923EB3F00EF36FA /* test-AssetParser.cc in Sources */,
 				BBFC8427196C1B1F001A236A /* test-ResourceParser.cc in Sources */,
 				BBE7FEBE1922CAF300A1649E /* test-Blueprint.cc in Sources */,
 				BBCC856719543A4D00B99E90 /* test-SectionParser.cc in Sources */,
+				BB956B6C196C3C0200C90810 /* test-MSONPropertyParser.cc in Sources */,
 				BBCC856519542E5600B99E90 /* test-PayloadParser.cc in Sources */,
 				BBCC856419542E5100B99E90 /* test-ParametersParser.cc in Sources */,
 				BBFC8424196C0C27001A236A /* test-UriTemplateParser.cc in Sources */,
 				BBFC842A196C1B2B001A236A /* test-snowcrash.cc in Sources */,
 				BBD73566192ED45D009FE09E /* test-HeadersParser.cc in Sources */,
+				BB956B6D196C3C0200C90810 /* test-Signature.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

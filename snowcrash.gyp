@@ -100,7 +100,7 @@
         'test/test-SectionParser',
         'test/test-snowcrash.cc',
         # 'test/test-csnowcrash.cc',
-        'test/test-UriTemplateParser.cc'
+        'test/test-UriTemplateParser.cc',
         'test/test-Signature.cc'
       ],
       'dependencies': [
